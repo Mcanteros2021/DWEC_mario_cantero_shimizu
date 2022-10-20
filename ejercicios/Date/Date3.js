@@ -1,3 +1,4 @@
+//Hago una equivalencia a los arrays de los meses y dia de la semana para mostrar la fecha en distintos formatos segun la eleccion//
 let hoy = new Date()
 const dias = [
     'domingo',

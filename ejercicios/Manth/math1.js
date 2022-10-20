@@ -2,7 +2,7 @@
 // 2-Raíz.
 // 3-Redondeo.
 // 4-Trigonometría.
-//  Los parametros a calcular seran pasados como los demas argumentos
+//  Los parametros a calcular seran pasados como 4 y 5 argumentos
 
 if(process.argv[2] == 1){
 
@@ -28,6 +28,6 @@ if(process.argv[2] == 1){
 }else if(process.argv[2] == 4){
 
     let num = process.argv[3]
-    console.log("Seno: "+ Math.sin(num) + " Coseno: "+ Math.cos(num) + "Tangente: "+ Math.tan(num)  )
+    console.log("Seno: "+ Math.sin(num) + " Coseno: "+ Math.cos(num) + " Tangente: "+ Math.tan(num)  )
 
 }
