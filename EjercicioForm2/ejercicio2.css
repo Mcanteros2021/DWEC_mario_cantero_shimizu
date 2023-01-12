@@ -1,0 +1,42 @@
+td{
+    color: red;
+    border: red 1px solid;
+
+}
+
+img{
+    width: 90%;
+    height: 90%;
+}
+
+#lisa{
+
+    visibility: hidden;
+
+}
+#bart{
+
+    visibility: hidden;
+
+}
+#homer{
+
+    visibility: hidden;
+
+}
+#flanders{
+
+    visibility: hidden;
+
+}
+#marge{
+
+    visibility: hidden;
+
+}
+#maggie{
+
+    visibility: hidden;
+
+}
+
