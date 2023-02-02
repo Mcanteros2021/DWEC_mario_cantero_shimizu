@@ -4,18 +4,19 @@ function cargaDatos(){
 
     let xhr = new XMLHttpRequest();
 
-	xhr.onreadystatechange = function () {
+	xhr.onreadystatechange =  () => {
 		if (xhr.readyState == 4 && xhr.status == 200) {
-			carga_xml(xhr.responseXML);
+
+            let json = JSON.parse(xhr.responseText)
+			carga_xml(json);
 		}
 	};
-    xhr.open("GET", "http://localhost:8090/www/ejercicioXML/tvshow.xml");
+    xhr.open("GET", "http://localhost:8090/www/ejercicioJSON/tvshow.json");
 	xhr.send();
 }
 
-function carga_xml(xml){
+function carga_xml(json){
 
-   let series = xml.getElementsByTagName("SERIE")
    let table = document.createElement("table")
    let main = document.getElementById("main")
    let tr_apartado = document.createElement("tr")
@@ -33,7 +34,7 @@ function carga_xml(xml){
    tr_apartado.appendChild(td_4)
    table.appendChild(tr_apartado)
 
-    for (let i = 0; i< series.length ; i++) {
+    for (let i = 0; i< json.SERIES.length ; i++) {
 
         let tr = document.createElement("tr")
         let th = document.createElement("th")
@@ -43,23 +44,23 @@ function carga_xml(xml){
         let td_img = document.createElement("td")
         let img_element = document.createElement("img")
 
-        th.appendChild(document.createTextNode(series[i].getElementsByTagName("TITULO")[0]
-        .firstChild.nodeValue))
+        th.appendChild(document.createTextNode(json.SERIES[i].TITULO))
         tr.appendChild(th)
 
-        director.appendChild(document.createTextNode(series[i].getElementsByTagName("DIRECTOR")[0]
-        .firstChild.nodeValue))
+        director.appendChild(document.createTextNode(json.SERIES[i].DIRECTOR))
         td_director.appendChild(director)
         tr.appendChild(td_director)
 
-        let anio = parseInt(series[i].getElementsByTagName("ANYO")[0].firstChild.nodeValue,10)
+        let anio = json.SERIES[i].ANYO
 
         if( anio <= 2000 ){
             
             td_año.setAttribute("class","rojo")
  
         } else if(anio >= 2001 && anio <= 2010 ){
+
             td_año.setAttribute("class","amarillo")
+            
         } else{
             td_año.setAttribute("class","verde")
         }
@@ -67,7 +68,7 @@ function carga_xml(xml){
         td_año.appendChild(document.createTextNode(anio))
         tr.appendChild(td_año)
 
-        let img = series[i].getElementsByTagName("TERMINADA")[0].firstChild.nodeValue
+        let img = json.SERIES[i].TERMINADA
 
         if(img === "Si"){
             img_element.setAttribute("src","./tick-mark-icon.svg")
