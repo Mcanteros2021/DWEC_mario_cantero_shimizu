@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calculadora de notas</title>
+    <meta charset="utf-8">
+    <style>
+      label {
+        display: block;
+        margin-bottom: 10px;
+      }
+      input[type="number"] {
+        width: 50px;
+      }
+      button {
+        margin-top: 20px;
+        padding: 10px;
+        font-size: 16px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #3e8e41;
+      }
+      h1 {
+        margin-top: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Calculadora de notas</h1>
+    <form id="formulario">
+      <label>
+        Número de preguntas acertadas:
+        <input type="number" name="acertadas" required>
+      </label>
+      <label>
+        Número de preguntas incorrectas:
+        <input type="number" name="incorrectas" required>
+      </label>
+      <label>
+        Número de preguntas sin contestar:
+        <input type="number" name="sinContestar" required>
+      </label>
+      <button type="submit">Calcular nota</button>
+    </form>
+    <div id="resultado"></div>
+    <script src="calcularExamen.js"></script>
+  </body>
+</html>
